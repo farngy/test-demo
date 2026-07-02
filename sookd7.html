@@ -1,0 +1,2585 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sook D | The Luxury Green Sanctuary of Bang Krachao</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Sarabun:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- Reset & Base Styles --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", "Sarabun", sans-serif;
+        background-color: #fcfbf9;
+        color: #2c302e;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* --- Luxury Navigation Bar --- */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: all 0.4s ease;
+      }
+      header.scrolled,
+      header.subpage-active {
+        padding: 15px 50px;
+        background-color: rgba(252, 251, 249, 0.95);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      }
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #fff;
+        cursor: pointer;
+      }
+      header.scrolled .logo,
+      header.subpage-active .logo {
+        color: #2c302e;
+      }
+      .nav-container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 35px;
+      }
+      .nav-links a {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #fff;
+        cursor: pointer;
+      }
+      header.scrolled .nav-links a,
+      header.subpage-active .nav-links a {
+        color: #2c302e;
+      }
+
+      .lang-switcher {
+        display: flex;
+        gap: 8px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 500;
+      }
+      header.scrolled .lang-switcher,
+      header.subpage-active .lang-switcher {
+        color: rgba(44, 48, 46, 0.5);
+      }
+      .lang-btn {
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+      .lang-btn.active {
+        color: #fff;
+        font-weight: 600;
+        border-bottom: 1px solid #fff;
+      }
+      header.scrolled .lang-btn.active,
+      header.subpage-active .lang-btn.active {
+        color: #2c302e;
+        border-bottom-color: #2c302e;
+      }
+
+      /* --- Global View Control --- */
+      .page-view {
+        display: none;
+      }
+      #homepage-view {
+        display: block;
+      }
+
+      /* --- Hero Section --- */
+      .hero {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+      }
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.65);
+        transition: transform 8s ease;
+        transform: scale(1.05);
+        z-index: 1;
+      }
+      .hero.active .hero-bg {
+        transform: scale(1);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        max-width: 900px;
+        padding: 0 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1.5s ease 0.5s;
+      }
+      .hero.active .hero-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero-subtitle {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        margin-bottom: 20px;
+        font-weight: 300;
+      }
+      .hero-title {
+        font-size: 52px;
+        line-height: 1.3;
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+
+      .intro {
+        padding: 120px 20px 60px 20px;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .section-tag {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: #8c92ac;
+        margin-bottom: 20px;
+        display: block;
+      }
+      .intro h2 {
+        font-size: 36px;
+        color: #1a1c1b;
+        line-height: 1.4;
+      }
+
+      /* --- 3-Column Luxury Grid --- */
+      .tri-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 0 40px 120px 40px;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+      .grid-card {
+        position: relative;
+        height: 650px;
+        overflow: hidden;
+        background-color: #000;
+        cursor: pointer;
+      }
+      .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+        filter: brightness(0.85);
+      }
+      .grid-card:hover .grid-img {
+        transform: scale(1.05);
+      }
+      .grid-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 40px;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 60%;
+      }
+      .grid-title {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 26px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+      }
+      .grid-description {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.6;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .grid-card:hover .grid-description {
+        opacity: 0.95;
+        transform: translateY(0);
+      }
+
+      /* ปุ่มย้อนกลับสไตล์เรียบหรู */
+      .back-btn-container {
+        max-width: 1200px;
+        margin: 100px auto 10px auto;
+        padding: 0 20px;
+      }
+      .global-back-btn {
+        display: inline-block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #2c302e;
+        cursor: pointer;
+        font-weight: 500;
+        border-bottom: 1px solid #2c302e;
+        padding-bottom: 3px;
+      }
+
+      /* ==========================================================================
+           🛒 SECTION: SOOK SHOPS VIEW (เวอร์ชันเสถียรที่ใช้งานได้ดีแน่นอน)
+           ========================================================================== */
+      .shop-banner {
+        height: 45vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        background-image: url("https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+      .shop-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+      }
+      .shop-banner-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+      }
+      .shop-banner-title {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 42px;
+        font-weight: 400;
+        line-height: 1.3;
+        margin-bottom: 15px;
+      }
+      .shop-banner-sub {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 300;
+      }
+      .shop-controls {
+        max-width: 1200px;
+        margin: 30px auto 20px auto;
+        padding: 0 20px;
+      }
+      .shop-search-bar {
+        width: 100%;
+        padding: 14px 25px;
+        border: 1px solid #e2e0db;
+        background-color: #fff;
+        border-radius: 30px;
+        font-size: 14px;
+        color: #2c302e;
+        outline: none;
+      }
+      .shop-filter-bar {
+        max-width: 1200px;
+        margin: 0 auto 40px auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #e2e0db;
+        padding-bottom: 15px;
+        font-size: 13px;
+        color: #8c92ac;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 80px auto;
+        padding: 0 20px;
+      }
+      .product-card {
+        background: #fff;
+        border: 1px solid #f0eee9;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+      .product-img-box {
+        position: relative;
+        height: 280px;
+        overflow: hidden;
+      }
+      .product-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .benefit-badge {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: #2c302e;
+        color: #fff;
+        padding: 4px 10px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 2px;
+      }
+      .product-info {
+        padding: 25px;
+      }
+      .product-tag {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #8c92ac;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .product-name {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 20px;
+        color: #1a1c1b;
+        margin-bottom: 10px;
+      }
+      .product-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #f5f4f0;
+      }
+      .product-price {
+        font-size: 16px;
+        font-weight: 500;
+        color: #2c302e;
+      }
+      .buy-btn {
+        background-color: #2c302e;
+        color: #fcfbf9;
+        padding: 8px 18px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* ==========================================================================
+           🍳 SECTION: SOOK TASTE LUXURY VIEW (เวอร์ชันเต็มรูปแบบดั้งเดิม)
+           ========================================================================== */
+      .taste-banner {
+        height: 55vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        background-image: url("https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+      .taste-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+      }
+      .taste-intro-text {
+        max-width: 800px;
+        margin: 60px auto 40px auto;
+        text-align: center;
+        padding: 0 20px;
+      }
+      .taste-intro-text h2 {
+        font-size: 34px;
+        color: #1a1c1b;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+      .taste-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        background-color: #fff;
+        border-bottom: 1px solid #f2f0ea;
+      }
+      .taste-row-img-box {
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+      }
+      .taste-row-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.5s ease;
+      }
+      .taste-row:hover .taste-row-img {
+        transform: scale(1.03);
+      }
+      .taste-row-content {
+        padding: 80px 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+      }
+      .taste-row-title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid #e2e0db;
+        padding-bottom: 15px;
+      }
+      .taste-row-title {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 28px;
+        color: #2c302e;
+        font-weight: 500;
+      }
+      .taste-row-badge {
+        font-size: 11px;
+        background-color: #edf0ee;
+        color: #4a5c50;
+        padding: 4px 10px;
+        border-radius: 2px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+      .taste-value-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 10px;
+      }
+      .taste-value-item h4 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #8c92ac;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+      .taste-value-item p {
+        font-size: 14px;
+        color: #5a605c;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+      .booking-section {
+        background-color: #2c302e;
+        color: #fcfbf9;
+        padding: 100px 20px;
+        text-align: center;
+      }
+      .booking-container {
+        max-width: 600px;
+        margin: 40px auto 0 auto;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+      .form-group {
+        margin-bottom: 25px;
+        text-align: left;
+      }
+      .form-group label {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        opacity: 0.8;
+      }
+      .form-control {
+        width: 100%;
+        padding: 14px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .form-control:focus {
+        border-color: #fcfbf9;
+      }
+      .book-submit-btn {
+        width: 100%;
+        padding: 16px;
+        background-color: #fcfbf9;
+        color: #2c302e;
+        border: none;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.3s;
+      }
+      .book-submit-btn:hover {
+        opacity: 0.9;
+      }
+
+      /* ==========================================================================
+           🎉 SECTION: SOOK EXPLORE LUXURY VIEW (เวอร์ชันเต็มรูปแบบดั้งเดิม)
+           ========================================================================== */
+      .explore-banner {
+        height: 55vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        background-image: url("https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+      .explore-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+      }
+      .route-section {
+        max-width: 1200px;
+        margin: 60px auto 100px auto;
+        padding: 0 20px;
+      }
+      .route-intro-text {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .route-intro-text h2 {
+        font-size: 34px;
+        color: #1a1c1b;
+        margin-bottom: 15px;
+      }
+      .route-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+      }
+      .route-card {
+        background: #fff;
+        border: 1px solid #f0eee9;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+        transition: all 0.3s ease;
+      }
+      .route-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      }
+      .route-img-box {
+        height: 240px;
+        overflow: hidden;
+        position: relative;
+      }
+      .route-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .route-app-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: #2c302e;
+        color: #fff;
+        padding: 4px 10px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      .route-info {
+        padding: 30px;
+      }
+      .route-tag {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #8c92ac;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .route-title {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 22px;
+        color: #2c302e;
+        margin-bottom: 12px;
+      }
+      .route-desc {
+        font-size: 14px;
+        color: #606662;
+        font-weight: 300;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .route-duration {
+        font-size: 12px;
+        font-weight: 500;
+        color: #2c302e;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .workshop-section {
+        background-color: #f4f2eb;
+        padding: 100px 20px;
+      }
+      .workshop-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .workshop-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+      }
+      .workshop-card {
+        background: #fff;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px solid #e8e5dc;
+        transition: all 0.3s;
+      }
+      .workshop-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+      }
+      .workshop-img-box {
+        height: 190px;
+        overflow: hidden;
+      }
+      .workshop-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .workshop-info {
+        padding: 20px;
+      }
+      .workshop-title {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 18px;
+        color: #2c302e;
+        margin-bottom: 8px;
+      }
+      .workshop-desc {
+        font-size: 13px;
+        color: #707672;
+        font-weight: 300;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        height: 60px;
+        overflow: hidden;
+      }
+      .workshop-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #f5f4f0;
+        padding-top: 12px;
+      }
+      .workshop-price {
+        font-size: 14px;
+        font-weight: 500;
+        color: #2c302e;
+      }
+      .workshop-btn {
+        background-color: #2c302e;
+        color: #fcfbf9;
+        padding: 6px 14px;
+        font-size: 11px;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+      }
+
+      /* ==========================================================================
+           🌍 SECTION 5: SOOK D NATIONAL DISCOVER VIEW (จุดเดียวที่คุณอยากแก้ไข)
+           ========================================================================== */
+      .discover-banner {
+        height: 55vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+      .discover-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+      }
+      .province-search-container {
+        max-width: 1000px;
+        margin: 40px auto 10px auto;
+        padding: 0 20px;
+      }
+
+      .discover-inline-nav {
+        max-width: 1200px;
+        margin: 40px auto 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 14px;
+      }
+      .inline-back-btn {
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #8c92ac;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+      .inline-back-btn:hover {
+        color: #2c302e;
+      }
+      .inline-divider {
+        color: #e2e0db;
+      }
+      .inline-current-loc {
+        font-weight: 600;
+        color: #2c302e;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .shop-filter-bar.discover-tabs {
+        max-width: 1200px;
+        margin: 20px auto 40px auto;
+        padding: 0 20px;
+        border-top: none;
+      }
+      .shop-filter-bar.discover-tabs span {
+        cursor: pointer;
+        padding-bottom: 5px;
+        transition: all 0.3s;
+        border-bottom: 2px solid transparent;
+        color: #8c92ac;
+      }
+      .shop-filter-bar.discover-tabs span.active {
+        color: #2c302e;
+        font-weight: 600;
+        border-bottom-color: #2c302e;
+      }
+
+      #discover-anchor-target {
+        scroll-margin-top: 100px;
+      }
+      .province-content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto 60px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 50px;
+        align-items: start;
+      }
+      .province-media-pane {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .main-loc-title {
+        font-size: 38px;
+        color: #1a1c1b;
+        margin-bottom: 5px;
+      }
+      .main-loc-sub {
+        font-size: 16px;
+        font-style: italic;
+        color: #8c92ac;
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+      }
+      .loc-rich-text {
+        font-size: 15px;
+        color: #5a605c;
+        font-weight: 300;
+        line-height: 1.8;
+        margin-bottom: 25px;
+      }
+      .loc-video-box {
+        width: 100%;
+        height: 420px;
+        background-color: #000;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .loc-video-placeholder {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.85;
+      }
+
+      .virtual-human-pane {
+        background-color: #f4f2eb;
+        border: 1px solid #e8e5dc;
+        padding: 40px;
+        border-radius: 4px;
+        position: sticky;
+        top: 100px;
+        text-align: center;
+      }
+      .vh-avatar-circle {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background-image: url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80");
+        background-size: cover;
+        background-position: center;
+        margin: 0 auto 20px auto;
+        border: 3px solid #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      }
+      .vh-name {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 20px;
+        color: #2c302e;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      .vh-title {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #8c92ac;
+        margin-bottom: 20px;
+        display: block;
+      }
+      .vh-speech-bubble {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 6px;
+        font-size: 13px;
+        color: #4a504c;
+        font-weight: 300;
+        text-align: left;
+        line-height: 1.6;
+        border: 1px solid #e2e0db;
+      }
+
+      .online-activity-section {
+        max-width: 1200px;
+        margin: 80px auto 100px auto;
+        padding: 0 20px;
+        border-top: 1px solid #e2e0db;
+        padding-top: 60px;
+      }
+      .online-activity-section h3 {
+        font-size: 28px;
+        margin-bottom: 40px;
+        font-weight: 400;
+        color: #1a1c1b;
+      }
+      .online-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+      .online-card {
+        background: #fff;
+        border: 1px solid #f0eee9;
+        padding: 30px 20px;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .online-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+        border-color: #2c302e;
+      }
+      .online-icon-box {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 20px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #fcfbf9;
+        border: 1px solid #f2f0ea;
+      }
+      .online-icon-box img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+      }
+      .online-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #2c302e;
+      }
+
+      .faq-section {
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 0 20px;
+      }
+      .faq-section h3 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        font-weight: 400;
+      }
+      .faq-item {
+        margin-bottom: 25px;
+        border-bottom: 1px solid #f0eee9;
+        padding-bottom: 20px;
+      }
+      .faq-q {
+        font-weight: 500;
+        font-size: 16px;
+        color: #1a1c1b;
+        margin-bottom: 8px;
+      }
+      .faq-a {
+        font-weight: 300;
+        font-size: 14px;
+        color: #606662;
+        line-height: 1.6;
+      }
+
+      .discover-more-section {
+        background-color: #fff;
+        border-top: 1px solid #f2f0ea;
+        padding: 90px 20px;
+      }
+      .discover-more-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto 0 auto;
+      }
+      .dm-card {
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .dm-img-box {
+        height: 220px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border-radius: 2px;
+      }
+      .dm-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s;
+      }
+      .dm-card:hover .dm-img {
+        transform: scale(1.04);
+      }
+      .dm-title {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 20px;
+        color: #2c302e;
+        margin-bottom: 5px;
+      }
+      .dm-desc {
+        font-size: 13px;
+        color: #8c92ac;
+        font-weight: 300;
+      }
+
+      .game-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(44, 48, 46, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-body {
+        background-color: #fcfbf9;
+        max-width: 650px;
+        width: 90%;
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+        border: 1px solid #e8e5dc;
+        text-align: center;
+      }
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #8c92ac;
+      }
+      .modal-iframe-placeholder {
+        width: 100%;
+        height: 300px;
+        background-color: #2c302e;
+        margin: 20px 0;
+        border-radius: 2px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .modal-action-btn {
+        background-color: #2c302e;
+        color: #fcfbf9;
+        padding: 12px 30px;
+        border: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      @media (max-width: 1024px) {
+        .tri-grid,
+        .product-grid,
+        .taste-row,
+        .route-grid,
+        .workshop-grid,
+        .province-content-wrapper,
+        .discover-more-grid,
+        .online-grid {
+          grid-template-columns: 1fr;
+        }
+        .taste-row-img-box {
+          height: 400px;
+        }
+        .grid-card {
+          height: 500px;
+        }
+        .virtual-human-pane {
+          position: static;
+          margin-top: 40px;
+        }
+        header {
+          padding: 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Navigation Bar -->
+    <header id="main-header">
+      <a onclick="navigate('home')" class="logo">Sook D</a>
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li>
+            <a onclick="navigate('discover')" id="nav-discover">Discover</a>
+          </li>
+          <li><a onclick="navigate('shop')" id="nav-shops">Sook Shops</a></li>
+          <li><a onclick="navigate('taste')" id="nav-taste">Sook Taste</a></li>
+          <li>
+            <a onclick="navigate('explore')" id="nav-explore">Sook Explore</a>
+          </li>
+        </ul>
+        <div class="lang-switcher">
+          <span class="lang-btn" onclick="switchLang('th')" id="btn-th"
+            >TH</span
+          >
+          <span>/</span>
+          <span class="lang-btn active" onclick="switchLang('en')" id="btn-en"
+            >EN</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         🏠 VIEW 1: HOMEPAGE VIEW (เวอร์ชันเต็ม 100% ตัวเดิมที่เคยใช้งานได้ดี)
+         ========================================================================== -->
+    <div id="homepage-view" class="page-view">
+      <section class="hero" id="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <p class="hero-subtitle" id="hero-sub">Sook D • Bang Krachao</p>
+          <h1 class="hero-title" id="hero-main">
+            The River Oasis<br />Where Time Stands Still
+          </h1>
+        </div>
+      </section>
+      <section class="intro">
+        <span class="section-tag" id="intro-tag">The Tri-Senses of Sook D</span>
+        <h2 id="intro-text">
+          Experience Bang Krachao through three curated perspectives.
+        </h2>
+      </section>
+      <section class="tri-grid">
+        <div class="grid-card" onclick="navigate('shop')">
+          <img
+            src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80"
+            class="grid-img"
+          />
+          <div class="grid-overlay">
+            <h3 class="grid-title" id="card-title-1">Sook Shops</h3>
+            <p class="grid-description" id="card-desc-1">
+              Curating premium eco-crafts and community products with
+              sustainable supply chain logging, turning local wisdom into
+              tangible everyday luxury.
+            </p>
+          </div>
+        </div>
+        <div class="grid-card" onclick="navigate('taste')">
+          <img
+            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+            class="grid-img"
+          />
+          <div class="grid-overlay">
+            <h3 class="grid-title" id="card-title-2">Sook Taste</h3>
+            <p class="grid-description" id="card-desc-2">
+              Embracing the gastronomy digitization of traditional recipes.
+              Savor precision-cooked heritage dishes sourced transparently from
+              eco-friendly agriculture.
+            </p>
+          </div>
+        </div>
+        <div class="grid-card" onclick="navigate('explore')">
+          <img
+            src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&q=80"
+            class="grid-img"
+          />
+          <div class="grid-overlay">
+            <h3 class="grid-title" id="card-title-3">Sook Explore</h3>
+            <p class="grid-description" id="card-desc-3">
+              Journey through customized local eco-tourism. Discover hidden
+              waterways, sound meditation sessions, and green innovations
+              designed to engage your mind.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================================
+         🛒 VIEW 2: SOOK SHOPS VIEW (เวอร์ชันเต็ม 100% ตัวเดิมที่เคยใช้งานได้ดี)
+         ========================================================================== -->
+    <div id="shop-view" class="page-view">
+      <section class="shop-banner">
+        <div class="shop-banner-content">
+          <h1 class="shop-banner-title" id="shop-banner-title">
+            Exclusive Privileges<br />for Sustainable Living
+          </h1>
+          <p class="shop-banner-sub" id="shop-banner-sub">
+            Sook Shops Recommended Collection
+          </p>
+        </div>
+      </section>
+      <div class="shop-controls">
+        <span
+          class="global-back-btn"
+          onclick="navigate('home')"
+          id="shop-back-btn"
+          >← Back to Home</span
+        >
+        <input
+          type="text"
+          class="shop-search-bar"
+          id="shop-search-placeholder"
+          placeholder="Search premium crafts and products..."
+        />
+      </div>
+      <div class="shop-filter-bar">
+        <span id="shop-filter-text">Filter By Category</span>
+        <span id="shop-sort-text">Sort By: Featured</span>
+      </div>
+      <section class="product-grid">
+        <div class="product-card">
+          <div class="product-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80"
+              class="product-img"
+            />
+            <div class="benefit-badge">5% REBATE</div>
+          </div>
+          <div class="product-info">
+            <span class="product-tag" id="prod-tag-1">Organic Craft</span>
+            <h3 class="product-name" id="prod-name-1">
+              Premium Indigo Tie-Dye Scarf
+            </h3>
+            <div class="product-meta">
+              <span class="product-price">1,250 Baht</span
+              ><button
+                class="buy-btn"
+                onclick="alert('Added to cart')"
+                id="prod-buy-1"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
+              class="product-img"
+            />
+            <div class="benefit-badge">10% REBATE</div>
+          </div>
+          <div class="product-info">
+            <span class="product-tag" id="prod-tag-2">Wellness & Food</span>
+            <h3 class="product-name" id="prod-name-2">
+              Green Banana Flour Pasta
+            </h3>
+            <div class="product-meta">
+              <span class="product-price">350 Baht</span
+              ><button
+                class="buy-btn"
+                onclick="alert('Added to cart')"
+                id="prod-buy-2"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&q=80"
+              class="product-img"
+            />
+            <div class="benefit-badge">5% REBATE</div>
+          </div>
+          <div class="product-info">
+            <span class="product-tag" id="prod-tag-3">Eco Product</span>
+            <h3 class="product-name" id="prod-name-3">
+              Handcrafted Reed Mat Bag
+            </h3>
+            <div class="product-meta">
+              <span class="product-price">1,890 Baht</span
+              ><button
+                class="buy-btn"
+                onclick="alert('Added to cart')"
+                id="prod-buy-3"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================================
+         🍳 VIEW 3: SOOK TASTE VIEW (เวอร์ชันเต็ม 100% ตัวเดิมที่เคยใช้งานได้ดี)
+         ========================================================================== -->
+    <div id="taste-view" class="page-view">
+      <section class="taste-banner">
+        <div class="shop-banner-content">
+          <h1 class="shop-banner-title" id="taste-banner-title">
+            The Culinary Wisdom of Bang Krachao
+          </h1>
+          <p class="shop-banner-sub" id="taste-banner-sub">
+            Honoring Heritage Ecosystems Through Gastronomy
+          </p>
+        </div>
+      </section>
+      <div class="back-btn-container">
+        <span
+          class="global-back-btn"
+          onclick="navigate('home')"
+          id="taste-back-btn"
+          >← Back to Home</span
+        >
+      </div>
+      <div class="taste-intro-text">
+        <span class="section-tag" id="ing-section-tag">Ecology on a Plate</span>
+        <h2 id="ing-section-heading">Every Ingredient Tells a Story</h2>
+      </div>
+      <section class="taste-story-container">
+        <div class="taste-row">
+          <div class="taste-row-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=80"
+              class="taste-row-img"
+            />
+          </div>
+          <div class="taste-row-content">
+            <div class="taste-row-title-container">
+              <h3 class="taste-row-title" id="ing-title-1">
+                Stingless Bee Honey (น้ำผึ้งชันโรง)
+              </h3>
+              <span class="taste-row-badge" id="ing-eco-1"
+                >Pollinator Ally</span
+              >
+            </div>
+            <div class="taste-value-stack">
+              <div class="taste-value-item">
+                <h4 class="v-h-lbl">ดีต่อคนกิน</h4>
+                <p id="v-desc-h1">
+                  สารต้านอนุมูลอิสระสูงกว่าน้ำผึ้งทั่วไป
+                  บำรุงสมองและเสริมภูมิคุ้มกันระดับลึก
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4 class="v-c-lbl">ดีต่อชุมชน</h4>
+                <p id="v-desc-c1">
+                  สร้างรายได้เสริมที่เป็นกอบเป็นกำให้เกษตรกรสวนอินทรีย์รอบคุ้งบางกะเจ้า
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4 class="v-e-lbl">ดีต่อสิ่งแวดล้อม</h4>
+                <p id="v-desc-e1">
+                  ชันโรงช่วยผสมเกสรพืชพรรณไม้
+                  ช่วยรักษาความหลากหลายทางชีวภาพของป่าไม้ให้คงอยู่
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="taste-row">
+          <div class="taste-row-content">
+            <div class="taste-row-title-container">
+              <h3 class="taste-row-title" id="ing-title-2">
+                Nam Dok Mai Mango (มะม่วงน้ำดอกไม้)
+              </h3>
+              <span class="taste-row-badge" id="ing-eco-2"
+                >Alluvial Soil Bounty</span
+              >
+            </div>
+            <div class="taste-value-stack">
+              <div class="taste-value-item">
+                <h4>ดีต่อคนกิน</h4>
+                <p id="v-desc-h2">
+                  อุดมด้วยวิตามินซีและเบต้าแคโรทีนเข้มข้น
+                  บำรุงสายตาและระบบทางเดินอาหาร
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4>ดีต่อชุมชน</h4>
+                <p id="v-desc-c2">
+                  ร่วมสืบทอดสวนผลไม้ยกร่องโบราณ
+                  อัตลักษณ์วิถีเกษตรกรรมดั้งเดิมที่ใกล้สูญหาย
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4>ดีต่อสิ่งแวดล้อม</h4>
+                <p id="v-desc-e2">
+                  รากต้นมะม่วงช่วยยึดเกาะโครงสร้างหน้าดิน
+                  ลดการกัดเซาะพังทลายริมตลิ่งตามคลองธรรมชาติ
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="taste-row-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=1000&q=80"
+              class="taste-row-img"
+            />
+          </div>
+        </div>
+        <div class="taste-row">
+          <div class="taste-row-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1000&q=80"
+              class="taste-row-img"
+            />
+          </div>
+          <div class="taste-row-content">
+            <div class="taste-row-title-container">
+              <h3 class="taste-row-title" id="ing-title-3">
+                Pilangkasa Berry (ลูกพิลังกาสา)
+              </h3>
+              <span class="taste-row-badge" id="ing-eco-3"
+                >Native Herbal Gem</span
+              >
+            </div>
+            <div class="taste-value-stack">
+              <div class="taste-value-item">
+                <h4>ดีต่อคนกิน</h4>
+                <p id="v-desc-h3">
+                  มีสารแอนโทไซยานินเข้มข้นสูงมาก ช่วยบำรุงโลหิต ระบบไหลเวียน
+                  และหัวใจให้แข็งแรง
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4>ดีต่อชุมชน</h4>
+                <p id="v-desc-c3">
+                  ฟื้นฟูภูมิปัญญาพืชสมุนไพรโบราณ
+                  นำมาแปรรูปเพิ่มมูลค่าทางเศรษฐกิจเพื่อสุขภาพสร้างสรรค์
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4>ดีต่อสิ่งแวดล้อม</h4>
+                <p id="v-desc-e3">
+                  เติบโตได้ดีในระบบนิเวศป่าชายเลน
+                  เป็นแหล่งอาหารอินทรีย์ที่สำคัญของนกและสัตว์ท้องถิ่น
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="taste-row">
+          <div class="taste-row-content">
+            <div class="taste-row-title-container">
+              <h3 class="taste-row-title" id="ing-title-4">
+                Nipa Palm (ต้นจาก)
+              </h3>
+              <span class="taste-row-badge" id="ing-eco-4"
+                >Natural Water Filter</span
+              >
+            </div>
+            <div class="taste-value-stack">
+              <div class="taste-value-item">
+                <h4>ดีต่อคนกิน</h4>
+                <p id="v-desc-h4">
+                  น้ำตาลจากธรรมชาติมีค่าดัชนีน้ำตาลต่ำ (Low GI)
+                  เหมาะสำหรับผู้ควบคุมน้ำหนักและเบาหวาน
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4>ดีต่อชุมชน</h4>
+                <p id="v-desc-c4">
+                  สร้างอาชีพหัตถกรรมเย็บตับจาก
+                  และขนมพื้นบ้านโบราณอันเป็นเอกลักษณ์วัฒนธรรมริมน้ำ
+                </p>
+              </div>
+              <div class="taste-value-item">
+                <h4>ดีต่อสิ่งแวดล้อม</h4>
+                <p id="v-desc-e4">
+                  ระบบรากหนาแน่นพิเศษช่วยกรองสารเคมี บำบัดน้ำเสีย
+                  และยึดหน้าดินริมคลองสองน้ำอย่างยั่งยืน
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="taste-row-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80"
+              class="taste-row-img"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="booking-section">
+        <span class="section-tag" style="color: #edf0ee" id="book-tag"
+          >Exclusive Pre-Order</span
+        >
+        <h2 style="font-size: 38px" id="book-heading">
+          Reserve Your Farm-to-Table Experience
+        </h2>
+        <p
+          style="
+            font-weight: 300;
+            max-width: 600px;
+            margin: 15px auto 0 auto;
+            opacity: 0.8;
+            font-size: 15px;
+          "
+          id="book-sub"
+        >
+          เนื่องจากวัตถุดิบเก็บสดใหม่ตามฤดูกาลจากชุมชน
+          เราจึงเปิดรับเฉพาะการจองล่วงหน้าเท่านั้น
+          เพื่อรังสรรค์เมนูสุขภาพที่ดีที่สุดสำหรับคุณ
+        </p>
+        <div class="booking-container">
+          <form
+            onsubmit="event.preventDefault(); alert('Booking Requested Successfully');"
+          >
+            <div class="form-group">
+              <label id="lbl-name">Full Name</label
+              ><input type="text" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label id="lbl-date">Preferred Date</label
+              ><input type="date" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label id="lbl-guests">Number of Guests</label
+              ><input type="number" min="1" class="form-control" required />
+            </div>
+            <button type="submit" class="book-submit-btn" id="lbl-btn">
+              Request Reservation
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================================
+         🎉 VIEW 4: SOOK EXPLORE VIEW (เวอร์ชันเต็ม 100% ตัวเดิมที่เคยใช้งานได้ดี)
+         ========================================================================== -->
+    <div id="explore-view" class="page-view">
+      <section class="explore-banner">
+        <div class="shop-banner-content">
+          <h1 class="shop-banner-title" id="exp-banner-title">
+            Mindful Adventures in the Green Lung
+          </h1>
+          <p class="shop-banner-sub" id="exp-banner-sub">
+            Immersive Full-Day Routes & Craft Workshops
+          </p>
+        </div>
+      </section>
+      <div class="back-btn-container">
+        <span
+          class="global-back-btn"
+          onclick="navigate('home')"
+          id="exp-back-btn"
+          >← Back to Home</span
+        >
+      </div>
+      <section class="route-section">
+        <div class="route-intro-text">
+          <span class="section-tag" id="route-section-tag"
+            >Full-Day Experiences</span
+          >
+          <h2 id="route-section-heading">Digital-Guided Ecological Journeys</h2>
+        </div>
+        <div class="route-grid">
+          <div class="route-card">
+            <div class="route-img-box">
+              <img
+                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80"
+                class="route-img"
+              /><span class="route-app-badge">Mobile App Guide</span>
+            </div>
+            <div class="route-info">
+              <span class="route-tag" id="r-tag-1">Eco Nature</span>
+              <h3 class="route-title" id="r-title-1">
+                The Sanctuary Green Trail
+              </h3>
+              <p class="route-desc" id="r-desc-1">
+                Explore pristine mangrove pathways, learn about bird species,
+                and analyze your carbon footprint live via our integrated mobile
+                app.
+              </p>
+              <span class="route-duration" id="r-dur-1"
+                >⏱ Full Day (8 Hours)</span
+              >
+            </div>
+          </div>
+          <div class="route-card">
+            <div class="route-img-box">
+              <img
+                src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80"
+                class="route-img"
+              /><span class="route-app-badge">Mobile App Guide</span>
+            </div>
+            <div class="route-info">
+              <span class="route-tag" id="r-tag-2">Heritage Culture</span>
+              <h3 class="route-title" id="r-title-2">
+                The Riverside Heritage Path
+              </h3>
+              <p class="route-desc" id="r-desc-2">
+                Immerse yourself in old-groove river temples, traditional
+                floating markets, and historic canal architecture mapped
+                precisely on your digital guide.
+              </p>
+              <span class="route-duration" id="r-dur-2"
+                >⏱ Full Day (8 Hours)</span
+              >
+            </div>
+          </div>
+          <div class="route-card">
+            <div class="route-img-box">
+              <img
+                src="https://images.unsplash.com/photo-1473116763269-255ea10e852d?auto=format&fit=crop&w=600&q=80"
+                class="route-img"
+              /><span class="route-app-badge">Mobile App Guide</span>
+            </div>
+            <div class="route-info">
+              <span class="route-tag" id="r-tag-3">Active Adventure</span>
+              <h3 class="route-title" id="r-title-3">
+                The Active Oasis Expedition
+              </h3>
+              <p class="route-desc" id="r-desc-3">
+                A high-energy day of hidden canal kayaking, unified community
+                bicycle tracks, and digital geocaching across Bang Krachao.
+              </p>
+              <span class="route-duration" id="r-dur-3"
+                >⏱ Full Day (7 Hours)</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="workshop-section">
+        <div class="workshop-container">
+          <div style="text-align: center; margin-bottom: 40px">
+            <span class="section-tag" id="work-section-tag"
+              >Mindful Sessions</span
+            >
+            <h2 style="font-size: 32px" id="work-section-heading">
+              Curated Local Workshops
+            </h2>
+          </div>
+          <div class="workshop-grid">
+            <div class="workshop-card">
+              <div class="workshop-img-box">
+                <img
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=500&q=80"
+                  class="workshop-img"
+                />
+              </div>
+              <div class="workshop-info">
+                <h4 class="workshop-title" id="w-title-1">
+                  Natural Indigo Tie-Dye
+                </h4>
+                <p class="workshop-desc" id="w-desc-1">
+                  Craft your own eco-friendly premium scarf using organic local
+                  indigo leaves and traditional patterns.
+                </p>
+                <div class="workshop-meta">
+                  <span class="workshop-price">650 THB</span
+                  ><button
+                    class="workshop-btn"
+                    onclick="alert('Workshop Booked!')"
+                    id="w-btn-1"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="workshop-card">
+              <div class="workshop-img-box">
+                <img
+                  src="https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=500&q=80"
+                  class="workshop-img"
+                />
+              </div>
+              <div class="workshop-info">
+                <h4 class="workshop-title" id="w-title-2">
+                  Organic Herbal Soap
+                </h4>
+                <p class="workshop-desc" id="w-desc-2">
+                  Formulate bespoke nutrient-dense skin therapy soaps using
+                  local stingless bee honey and native botanical extractions.
+                </p>
+                <div class="workshop-meta">
+                  <span class="workshop-price">550 THB</span
+                  ><button
+                    class="workshop-btn"
+                    onclick="alert('Workshop Booked!')"
+                    id="w-btn-2"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="workshop-card">
+              <div class="workshop-img-box">
+                <img
+                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80"
+                  class="workshop-img"
+                />
+              </div>
+              <div class="workshop-info">
+                <h4 class="workshop-title" id="w-title-3">
+                  Botanical Painting
+                </h4>
+                <p class="workshop-desc" id="w-desc-3">
+                  Unleash your creative soul by painting with premium organic
+                  pigments derived from local flowers and earth clay.
+                </p>
+                <div class="workshop-meta">
+                  <span class="workshop-price">450 THB</span
+                  ><button
+                    class="workshop-btn"
+                    onclick="alert('Workshop Booked!')"
+                    id="w-btn-3"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="workshop-card">
+              <div class="workshop-img-box">
+                <img
+                  src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=500&q=80"
+                  class="workshop-img"
+                />
+              </div>
+              <div class="workshop-info">
+                <h4 class="workshop-title" id="w-title-4">
+                  Heritage Herbal Therapy
+                </h4>
+                <p class="workshop-desc" id="w-desc-4">
+                  Rejuvenate your body and spirit with an authentic, deep tissue
+                  holistic massage using custom heated native herbal compresses.
+                </p>
+                <div class="workshop-meta">
+                  <span class="workshop-price">1,200 THB</span
+                  ><button
+                    class="workshop-btn"
+                    onclick="alert('Workshop Booked!')"
+                    id="w-btn-4"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================================
+         🌍 SECTION 5: SOOK D NATIONAL DISCOVER VIEW (จุดปรับปรุงบั๊ก UI/UX สมบูรณ์แบบ)
+         ========================================================================== -->
+    <div id="discover-view" class="page-view">
+      <section class="discover-banner">
+        <div class="shop-banner-content">
+          <h1 class="shop-banner-title" id="disc-main-title">
+            Discover Sook D Sanctuaries
+          </h1>
+          <p class="shop-banner-sub" id="disc-main-sub">
+            Explore Premium Community Tourism Across Thailand
+          </p>
+        </div>
+      </section>
+
+      <div class="province-search-container">
+        <input
+          type="text"
+          class="shop-search-bar"
+          placeholder="🔍 Search destinations, provinces or communities..."
+        />
+      </div>
+
+      <!-- แถบเมนูนำทางย่อยซ้ายสุดต่อด้วยชื่อสถานที่ปัจจุบัน (ไม่มีวางซ้อนด้านบน) -->
+      <div class="discover-inline-nav">
+        <span
+          class="inline-back-btn"
+          onclick="navigate('home')"
+          id="discover-back-txt"
+          >← Back to Home</span
+        >
+        <span class="inline-divider">|</span>
+        <span class="inline-current-loc" id="inline-loc-label"
+          >Samut Prakan (บางกะเจ้า)</span
+        >
+      </div>
+
+      <!-- แถบป้ายสลับชื่อจังหวัดด้านบน -->
+      <div class="shop-filter-bar discover-tabs">
+        <span onclick="switchProvince('samut')" id="p-tab-samut" class="active"
+          >Samut Prakan</span
+        >
+        <span onclick="switchProvince('nakhon')" id="p-tab-nakhon"
+          >Nakhon Pathom</span
+        >
+        <span onclick="switchProvince('ratchaburi')" id="p-tab-ratchaburi"
+          >Ratchaburi</span
+        >
+        <span onclick="switchProvince('nakhonsi')" id="p-tab-nakhonsi"
+          >Nakhon Si</span
+        >
+      </div>
+
+      <!-- สมอสำหรับรับระบบ Auto Smooth Scroll -->
+      <div id="discover-anchor-target"></div>
+
+      <!-- รายละเอียดข้อมูลจังหวัด + หุ่นจำลอง Virtual Human -->
+      <section class="province-content-wrapper">
+        <div class="province-media-pane">
+          <div>
+            <h2 class="main-loc-title" id="loc-display-title">
+              บางกะเจ้า (Bang Krachao)
+            </h2>
+            <p class="main-loc-sub" id="loc-display-sub">
+              สมุทรปราการ • The Green Lung of Bangkok
+            </p>
+            <p class="loc-rich-text" id="loc-display-text">
+              โอเอซิสธรรมชาติขนาดใหญ่ใกล้กรุงเทพฯ โอบล้อมด้วยแม่น้ำเจ้าพระยา
+              เต็มไปด้วยสวนป่าเกษตรกรรมยกร่องโบราณ ชุมชนบางกะเจ้า
+              และชุมชนพระประแดง
+              แหล่งรวมมรดกทางวัฒนธรรมและระบบนิเวศอันอุดมสมบูรณ์
+            </p>
+          </div>
+          <div class="loc-video-box">
+            <img
+              src="https://images.unsplash.com/photo-1473116763269-255ea10e852d?auto=format&fit=crop&w=1200&q=80"
+              class="loc-video-placeholder"
+              id="loc-display-img"
+            />
+          </div>
+        </div>
+
+        <div class="virtual-human-pane">
+          <div class="vh-avatar-circle"></div>
+          <h4 class="vh-name">Sookjai (สุขใจ)</h4>
+          <span class="vh-title">Sook D Virtual Concierge</span>
+          <div class="vh-speech-bubble">
+            <p id="vh-display-speech">
+              "สวัสดีค่ะ ยินดีต้อนรับสู่คุ้งบางกะเจ้า จังหวัดสมุทรปราการ
+              ชุมชนต้นแบบแห่งการท่องเที่ยวเชิงนิเวศ
+              ที่นี่เรามีกิจกรรมออนไลน์และเวิร์กชอปงานฝีมือมากมายให้ท่านได้ลองสัมผัสจำลองก่อนมาจองทริปจริงค่ะ"
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- แถบกิจกรรมย่อยออนไลน์ประจำพื้นที่ (Online Activity เฉพาะบางกะเจ้า) -->
+      <section class="online-activity-section" id="online-hub-wrapper">
+        <h3 id="online-section-heading">Online Interactive Activities</h3>
+        <div class="online-grid">
+          <div class="online-card" onclick="openGame('wat')">
+            <div class="online-icon-box">
+              <img src="https://img.icons8.com/color/96/buddhist-temple.png" />
+            </div>
+            <h4 class="online-title" id="on-title-1">วัดโปรดเกศเชษฐาราม</h4>
+          </div>
+          <div class="online-card" onclick="openGame('museum')">
+            <div class="online-icon-box">
+              <img src="https://img.icons8.com/color/96/museum.png" />
+            </div>
+            <h4 class="online-title" id="on-title-2">พิพิธภัณฑ์บ้านคลองบน</h4>
+          </div>
+          <div class="online-card" onclick="openGame('bee')">
+            <div class="online-icon-box">
+              <img src="https://img.icons8.com/color/96/bee.png" />
+            </div>
+            <h4 class="online-title" id="on-title-3">
+              วิสาหกิจเพาะเลี้ยงผึ้งชันโรง
+            </h4>
+          </div>
+          <div class="online-card" onclick="openGame('dye')">
+            <div class="online-icon-box">
+              <img src="https://img.icons8.com/color/96/fabric.png" />
+            </div>
+            <h4 class="online-title" id="on-title-4">ชุมชนผ้ามัดย้อม</h4>
+          </div>
+        </div>
+      </section>
+
+      <!-- โซนคำถามที่พบบ่อย (FAQ) สลับเปลี่ยนชุดข้อมูลตามจังหวัดจริงแบบอัตโนมัติ -->
+      <section class="faq-section">
+        <h3 id="faq-heading">Frequently Asked Questions</h3>
+        <div class="faq-item">
+          <div class="faq-q" id="faq-q1">Q: เดินทางมาคุ้งบางกะเจ้าอย่างไร?</div>
+          <div class="faq-a" id="faq-a1">
+            A: สามารถเดินทางด้วยรถไฟฟ้า BTS ลงสถานีบางนา
+            จากนั้นต่อรถไปยังท่าเรือวัดบางนานอก
+            เพื่อข้ามฟากด้วยเรือหางยาวมายังท่าเรือวัดบางน้ำผึ้งนอกได้ค่ะ
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" id="faq-q2">
+            Q: กิจกรรมเวิร์กชอปต้องจองล่วงหน้ากี่วัน?
+          </div>
+          <div class="faq-a" id="faq-a2">
+            A: แนะนำให้จองล่วงหน้าอย่างน้อย 2-3 วัน ผ่านฟังก์ชัน Sook Explore
+            เพื่อทีมชุมชนจะจัดส่งเตรียมวัตถุดิบได้สดใหม่ที่สุดค่ะ
+          </div>
+        </div>
+      </section>
+
+      <!-- โซนแนะนำจังหวัดอื่น ๆ (Discover More แรนเดอร์เฉพาะ 3 จังหวัดที่เหลือ ไม่ซ้ำจังหวัดหลักด้านบน) -->
+      <section class="discover-more-section">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
+          <h3
+            style="
+              font-family: 'Playfair Display', serif;
+              font-size: 24px;
+              color: #2c302e;
+              border-bottom: 1px solid #e2e0db;
+              padding-bottom: 15px;
+            "
+            id="dm-heading"
+          >
+            Discover More Sanctuaries
+          </h3>
+          <div class="discover-more-grid" id="dynamic-discover-more-grid">
+            <!-- ข้อมูลแรนเดอร์อัตโนมัติผ่านฟังก์ชัน renderDiscoverMore() ใน JS -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Modals Layer -->
+    <div class="game-modal" id="gameModal">
+      <div class="modal-body">
+        <span class="modal-close" onclick="closeGame()">&times;</span>
+        <h3 id="modal-game-title">Simulation Game</h3>
+        <div class="modal-iframe-placeholder">
+          <p
+            style="font-size: 18px; margin-bottom: 10px"
+            id="modal-status-text"
+          >
+            Loading...
+          </p>
+          <span style="font-size: 13px; opacity: 0.7" id="modal-sub-status"
+            >Please wait</span
+          >
+        </div>
+        <button
+          class="modal-action-btn"
+          onclick="goToExplore()"
+          id="modal-book-action-btn"
+        >
+          Book Real Experience
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-logo">Sook D</div>
+      <p class="copyright">
+        &copy; 2026 Sook D. All Rights Reserved. Powered by Learndo Social
+        Enterprise.
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      let currentLang = "en";
+      let activeProv = "samut";
+
+      // คลังข้อมูลจังหวัดสลับเนื้อหา แรนเดอร์ Discover More และเปลี่ยนชุดคำถาม FAQ
+      const provinceData = {
+        samut: {
+          id: "samut",
+          labelTh: "สมุทรปราการ (บางกะเจ้า)",
+          labelEn: "Samut Prakan (Bang Krachao)",
+          title: "บางกะเจ้า (Bang Krachao)",
+          sub: "สมุทรปราการ • The Green Lung of Bangkok",
+          text: "โอเอซิสธรรมชาติขนาดใหญ่ใกล้กรุงเทพฯ โอบล้อมด้วยแม่น้ำเจ้าพระยา เต็มไปด้วยสวนป่าเกษตรกรรมยกร่องโบราณ ชุมชนบางกะเจ้า และชุมชนพระประแดง แหล่งรวมมรดกทางวัฒนธรรมและระบบนิเวศอันอุดมสมบูรณ์",
+          img: "https://images.unsplash.com/photo-1473116763269-255ea10e852d?auto=format&fit=crop&w=1200&q=80",
+          speechTh: `"สวัสดีค่ะ ยินดีต้อนรับสู่คุ้งบางกะเจ้า จังหวัดสมุทรปราการ ชุมชนต้นแบบแห่งการท่องเที่ยวเชิงนิเวศ ที่นี่เรามีกิจกรรมออนไลน์และเวิร์กชอปงานฝีมือมากมายให้ท่านได้ลองสัมผัสจำลองก่อนมาจองทริปจริงค่ะ"`,
+          speechEn: `"Welcome to Bang Krachao, Samut Prakan. Bangkok's ultimate green oasis. Explore our virtual mini-games and interactive previews below before booking your real ecological adventure."`,
+          q1Th: "Q: เดินทางมาคุ้งบางกะเจ้าอย่างไร?",
+          a1Th: "A: สามารถเดินทางด้วยรถไฟฟ้า BTS ลงสถานีบางนา จากนั้นต่อรถไปยังท่าเรือวัดบางนานอก เพื่อข้ามฟากด้วยเรือหางยาวมายังท่าเรือวัดบางน้ำผึ้งนอกได้ค่ะ",
+          q2Th: "Q: กิจกรรมเวิร์กชอปต้องจองล่วงหน้ากี่วัน?",
+          a2Th: "A: แนะนำให้จองล่วงหน้าอย่างน้อย 2-3 วัน ผ่านฟังก์ชัน Sook Explore เพื่อทีมชุมชนจะจัดส่งเตรียมวัตถุดิบได้สดใหม่ที่สุดค่ะ",
+          q1En: "Q: How to travel to Bang Krachao?",
+          a1En: "A: Take the BTS Skytrain to Bangna Station, then proceed to Wat Bangna Nok Pier to catch a short, scenic long-tail boat crossing directly to Bang Namphueng Nok Pier.",
+          q2En: "Q: How many days in advance should I book the workshop?",
+          a2En: "A: We highly recommend booking 2-3 days in advance via Sook Explore to ensure our local community artisans prepare fresh organic materials for your arrival.",
+        },
+        nakhon: {
+          id: "nakhon",
+          labelTh: "นครปฐม (สนามจันทร์)",
+          labelEn: "Nakhon Pathom (Sanam Chandra)",
+          title: "พระราชวังสนามจันทร์ (Sanam Chandra)",
+          sub: "นครปฐม • Heritage & Organic Fields",
+          text: "สัมผัสความหรูหราทางประวัติศาสตร์รายล้อมด้วยธรรมชาติร่มรื่น ณ พระราชวังสนามจันทร์ จังหวัดนครปฐม แหล่งรวมคุณค่าสถาปัตยกรรมและเครือข่ายเกษตรอินทรีย์อินทรีย์ที่ปลอดภัยค้ำจุนชุมชน",
+          img: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80",
+          speechTh: `"สวัสดีค่ะ ยินดีต้อนรับสู่นครปฐม มาร่วมเรียนรู้ศิลปวัฒนธรรมสถาปัตยกรรมโบราณ และสัมผัสกิมมิกนวัตกรรมอาหารอินทรีย์ปลอดภัยของชุมชนย่อยรอบตัวเมืองกันค่ะ"`,
+          speechEn: `"Hello from Nakhon Pathom. Discover our rich cultural architecture and immersive local food supply chains setup to guarantee high-end sustainable village living."`,
+          q1Th: "Q: นครปฐมมีจุดท่องเที่ยวไฮไลต์อะไรบ้างในแพลตฟอร์ม?",
+          a1Th: "A: นอกเหนือจากพระราชวังสนามจันทร์แล้ว เรายังมีระบบเชื่อมโยงกลุ่มเกษตรกรรมอินทรีย์รอบนอก ให้คุณสัมผัสวิถีวิถีชีวิตอาหารปลอดภัยแบบพรีเมียมค่ะ",
+          q2Th: "Q: ทริปเต็มวันมีบริการนำเที่ยวผ่านโมบายแอปไหม?",
+          a2Th: "A: มีแน่นอนค่ะ แพลตฟอร์ม Sook D มีเส้นทางประวัติศาสตร์และแผนที่นำทางแบบคาร์บอนต่ำรองรับในทุกจังหวัดขยายผลค่ะ",
+          q1En: "Q: What are the main highlights in Nakhon Pathom?",
+          a1En: "A: Beyond Sanam Chandra Palace, we connect you to safe organic agriculture hubs and culinary artisan trails mapped elegantly for smart luxury tourists.",
+          q2En: "Q: Is there an app guide option for full-day tours here?",
+          a2En: "A: Yes, all Sook D national sub-destinations support smart digital guides and localized carbon-offset trip monitoring.",
+        },
+        ratchaburi: {
+          id: "ratchaburi",
+          labelTh: "ราชบุรี (สวนผึ้ง)",
+          labelEn: "Ratchaburi (Suan Phueng)",
+          title: "สวนผึ้ง (Suan Phueng)",
+          sub: "ราชบุรี • Misty Hills & Artisan Art",
+          text: "ดินแดนแห่งทิวเขาและสายหมอกฝั่งตะวันตก ค้นพบหมู่บ้านหัตถศิลป์งานคราฟต์อินทรีย์ กลุ่มชาติพันธุ์ดั้งเดิม และกิจกรรมเชิงนิเวศที่ช่วยบำบัดล้างสารพิษและฟื้นฟูร่างกายอย่างลึกซึ้ง",
+          img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+          speechTh: `"สวัสดีค่ะ หนีความวุ่นวายมาพักผ่อนท่ามกลางหุบเขาสวนผึ้ง ราชบุรี มาร่วมทดลองทำเวิร์กชอปเซรามิกดินอินทรีย์และศาสตร์บำบัดภูมิปัญญาท้องถิ่นด้านล่างได้เลยค่ะ"`,
+          speechEn: `"Greetings from Suan Phueng, Ratchaburi. Refresh your mind among the misty peaks. Engage in our pottery modeling games and discover plant-based therapies below."`,
+          q1Th: "Q: กิจกรรมเด่นที่สวนผึ้งเน้นเรื่องอะไรเป็นหลัก?",
+          a1Th: "A: เราเน้นกิจกรรมบำบัดฟื้นฟูสุขภาพองค์รวม (Holistic Therapy) ร่วมกับค่ายงานศิลปะหัตถศิลป์ดินเผาจากเกษตรกรรุ่นใหม่ในพื้นที่ค่ะ",
+          q2Th: "Q: สภาพภูมิอากาศช่วงไหนเหมาะแก่การเดินทางไปจองทริป?",
+          a2Th: "A: สวนผึ้งมีความอุดมสมบูรณ์ตลอดปี โดยเฉพาะช่วงปลายฝนต้นหนาวซึ่งผืนป่าจะคายออกซิเจนบริสุทธิ์หนาแน่นที่สุดค่ะ",
+          q1En: "Q: What is the focus of the Suan Phueng sanctuary?",
+          a1En: "A: Our program zeroes in on holistic body wellness, forest therapy, and premium earth pottery workshops co-created with local tribal communities.",
+          q2En: "Q: When is the best season to book this eco-trip?",
+          a2En: "A: Suan Phueng is pristine year-round, but the monsoon transition to winter offers the most luxurious misty canopy breathing experience.",
+        },
+        nakhonsi: {
+          id: "nakhonsi",
+          labelTh: "นครศรีธรรมราช (คีรีวง)",
+          labelEn: "Nakhon Si Thammarat (Kiriwong)",
+          title: "คีรีวง (Kiriwong Village)",
+          sub: "นครศรีธรรมราช • The Purest Breath of Thailand",
+          text: "หมู่บ้านโบราณกลางอ้อมกอดหุบเขาและธารน้ำตกที่อากาศบริสุทธิ์ที่สุดในประเทศไทย สืบทอดภูมิปัญญาสวนสมรมป่าเกษตรดั้งเดิม และงานหัตถกรรมคราฟต์มัดย้อมสีธรรมชาติพรีเมียม",
+          img: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+          speechTh: `"ยินดีต้อนรับสู่หมู่บ้านคีรีวงค่ะ มาร่วมสูดอากาศบริสุทธิ์ให้เต็มปอด สัมผัสวิถีผ้ามัดย้อมบาติกอินทรีย์ และเรียนรู้ระบบป่าเกษตรสวนสมรมดั้งเดิมที่ค้ำจุนธรรมชาติภาคใต้กันค่ะ"`,
+          speechEn: `"Welcome to Kiriwong, Nakhon Si Thammarat. Experience the cleanest air in Thailand. Try our interactive botanical batik dyeing simulator below before planning your trip."`,
+          q1Th: "Q: ระบบสวนสมรมที่คีรีวงคืออะไร?",
+          a1Th: "A: คือภูมิปัญญาป่าเกษตรดั้งเดิมที่ปลูกพืชผลไม้ สมุนไพร คละร่วมกับไม้ป่าธรรมชาติ โดยไม่ทำลายระบบนิเวศดั้งเดิม เกื้อกูลธรรมชาติอย่างยั่งยืนค่ะ",
+          q2Th: "Q: งานคราฟต์มัดย้อมสีธรรมชาติใช้พืชชนิดใด?",
+          a2Th: "A: ใช้เปลือกมังคุด ใบหูกวาง และฝักสะตออินทรีย์ในท้องถิ่น นำมาต้มสกัดเม็ดสีพรีเมียม ปลอดสารเคมีเคมี 100% ค่ะ",
+          q1En: "Q: What is the 'Suan Somrom' agricultural system?",
+          a1En: "A: It is an ancient mixed-orchard agroforestry system that grows multi-tiered tropical fruits and herbs harmoniously within the native rainforest canopy.",
+          q2En: "Q: What organic materials are used in Kiriwong tie-dyes?",
+          a2En: "A: Our community extracts premium chemical-free organic color tones from regional mangosteen peels, native leaves, and local wild pods.",
+        },
+      };
+
+      const gameTexts = {
+        th: {
+          wat: {
+            title: "วัดโปรดเกศเชษฐาราม (Virtual Tour)",
+            status: "🎬 กำลังโหลดวิดีโอพาชมสถาปัตยกรรมพระอุโบสถเก่าแก่...",
+            sub: "รับชมเรื่องเล่าประวัติศาสตร์และจิตรกรรมฝาผนังแบบ 360 องศา",
+          },
+          museum: {
+            title: "พิพิธภัณฑ์บ้านคลองบน (Mini Game)",
+            status:
+              "🎮 เปิดระบบมินิเกมค้นหาสมบัติและวัตถุโบราณในบ้านไม้เรือนไทย...",
+            sub: "สะสมคะแนนจากภูมิปัญญารุ่นปู่ย่าตายายเพื่อรับโค้ดส่วนลดพิเศษ",
+          },
+          bee: {
+            title: "วิสาหกิจเพาะเลี้ยงผึ้งชันโรง (Simulation)",
+            status: "🐝 เปิดระบบจำลองวิธีการเก็บน้ำผึ้งชันโรงอินทรีย์...",
+            sub: "เรียนรู้วิธีการคัดแยกน้ำผึ้งชันโรงคุณภาพสูง สรรพคุณต้านอนุมูลอิสระสูง",
+          },
+          dye: {
+            title: "ชุมชนผ้ามัดย้อม (Color Simulator)",
+            status:
+              "🎨 เปิดระบบเกมสุ่มออกแบบลวดลายและต้มสีย้อมผ้าจากเปลือกไม้...",
+            sub: "ทดลองแมตช์สีอินทรีย์อินเทรนด์ในแบบ Ultra-Luxury ของคุณเอง",
+          },
+        },
+        en: {
+          wat: {
+            title: "Wat Protket (Virtual Tour)",
+            status: "🎬 Loading Cinematic Video Tour of the Heritage Temple...",
+            sub: "Explore historic architecture and ancient murals in a 360° environment.",
+          },
+          museum: {
+            title: "Baan Khlong Bon Museum (Mini Game)",
+            status: "🎮 Launching Antique Treasure Hunt Mini-Game...",
+            sub: "Learn historic lifestyle tools and gather score points for rewards.",
+          },
+          bee: {
+            title: "Stingless Bee Farm (Simulation)",
+            status: "🐝 Launching Organic Honey Harvesting Simulator...",
+            sub: "Master the precise craft of collecting nutrient-dense eco honey safely.",
+          },
+          dye: {
+            title: "Tie-Dye Community (Color Simulator)",
+            status: "🎨 Launching Organic Palette & Pattern Matcher Game...",
+            sub: "Design your custom sustainable luxury pattern using native bark colors.",
+          },
+        },
+      };
+
+      // ฟังก์ชันคำนวณแรนเดอร์เฉพาะ 3 จังหวัดที่เหลืออยู่ ไม่ให้ซ้ำตัวบน
+      function renderDiscoverMore() {
+        const grid = document.getElementById("dynamic-discover-more-grid");
+        grid.innerHTML = "";
+
+        Object.keys(provinceData).forEach((key) => {
+          if (key !== activeProv) {
+            const item = provinceData[key];
+            const provinceName =
+              key === "samut"
+                ? "Samut Prakan"
+                : key === "nakhon"
+                ? "Nakhon Pathom"
+                : key === "ratchaburi"
+                ? "Ratchaburi"
+                : "Nakhon Si Thammarat";
+            const provinceDesc =
+              currentLang === "th" ? item.labelTh : item.labelEn;
+
+            const cardHtml = `
+                        <div class="dm-card" onclick="switchProvince('${item.id}')">
+                            <div class="dm-img-box"><img src="${item.img}" class="dm-img"></div>
+                            <h4 class="dm-title">${provinceName}</h4>
+                            <p class="dm-desc">${provinceDesc}</p>
+                        </div>
+                    `;
+            grid.innerHTML += cardHtml;
+          }
+        });
+      }
+
+      // ฟังก์ชันระบบสลับข้อมูลจังหวัด (ซ่อมบั๊ก Auto-Scroll / Tab Active / FAQ ไดนามิก / คาร์เซลสลับตัวครบถ้วน)
+      function switchProvince(prov) {
+        activeProv = prov;
+
+        const tabs = {
+          samut: "p-tab-samut",
+          nakhon: "p-tab-nakhon",
+          ratchaburi: "p-tab-ratchaburi",
+          nakhonsi: "p-tab-nakhonsi",
+        };
+        document
+          .querySelectorAll(".discover-tabs span")
+          .forEach((tab) => tab.classList.remove("active"));
+        if (document.getElementById(tabs[prov]))
+          document.getElementById(tabs[prov]).classList.add("active");
+
+        document.getElementById("inline-loc-label").innerText =
+          currentLang === "th"
+            ? provinceData[prov].labelTh
+            : provinceData[prov].labelEn;
+
+        document.getElementById("loc-display-title").innerText =
+          provinceData[prov].title;
+        document.getElementById("loc-display-sub").innerText =
+          provinceData[prov].sub;
+        document.getElementById("loc-display-text").innerText =
+          provinceData[prov].text;
+        document.getElementById("loc-display-img").src = provinceData[prov].img;
+        document.getElementById("vh-display-speech").innerText =
+          currentLang === "th"
+            ? provinceData[prov].speechTh
+            : provinceData[prov].speechEn;
+
+        // สลับคำถามคำตอบ FAQ ตามจริง
+        document.getElementById("faq-q1").innerText =
+          currentLang === "th"
+            ? provinceData[prov].q1Th
+            : provinceData[prov].q1En;
+        document.getElementById("faq-a1").innerText =
+          currentLang === "th"
+            ? provinceData[prov].a1Th
+            : provinceData[prov].a1En;
+        document.getElementById("faq-q2").innerText =
+          currentLang === "th"
+            ? provinceData[prov].q2Th
+            : provinceData[prov].q2En;
+        document.getElementById("faq-a2").innerText =
+          currentLang === "th"
+            ? provinceData[prov].a2Th
+            : provinceData[prov].a2En;
+
+        document.getElementById("online-hub-wrapper").style.display =
+          prov === "samut" ? "block" : "none";
+
+        // โหลดแรนเดอร์สลับช่องจังหวัดอื่น ๆ ด้านล่างสุด
+        renderDiscoverMore();
+
+        // รันระบบ Auto Smooth Scroll ไปจุดเป้าหมายด้านบน
+        const anchor = document.getElementById("discover-anchor-target");
+        if (anchor)
+          anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function openGame(target) {
+        const currentTexts = gameTexts[currentLang][target];
+        document.getElementById("modal-game-title").innerText =
+          currentTexts.title;
+        document.getElementById("modal-status-text").innerText =
+          currentTexts.status;
+        document.getElementById("modal-sub-status").innerText =
+          currentTexts.sub;
+        document.getElementById("gameModal").style.display = "flex";
+      }
+      function closeGame() {
+        document.getElementById("gameModal").style.display = "none";
+      }
+      function goToExplore() {
+        closeGame();
+        navigate("explore");
+      }
+
+      // แพลตฟอร์มหลักสลับหน้าจอ (SPA Navigation)
+      function navigate(page) {
+        document
+          .querySelectorAll(".page-view")
+          .forEach((view) => (view.style.display = "none"));
+        document
+          .getElementById("main-header")
+          .classList.remove("subpage-active");
+
+        if (page === "home")
+          document.getElementById("homepage-view").style.display = "block";
+        else {
+          if (document.getElementById(`${page}-view`)) {
+            document.getElementById(`${page}-view`).style.display = "block";
+            document
+              .getElementById("main-header")
+              .classList.add("subpage-active");
+            if (page === "discover") switchProvince(activeProv);
+          }
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      const data = {
+        th: {
+          navDiscover: "ค้นหาจุดหมาย",
+          navShops: "สุขชอป",
+          navTaste: "สุขชิม",
+          navExplore: "สุขสนุก",
+          heroSub: "สุขดี • บางกะเจ้า",
+          heroMain: "โอเอซิสริมแม่น้ำ<br>ที่ซึ่งเวลาหยุดหมุน",
+          introTag: "3 มิติแห่งความสุขดี",
+          introText:
+            "สัมผัสประสบการณ์บางกะเจ้าผ่าน 3 มุมมองที่เราคัดสรรมาเพื่อคุณ",
+          title1: "สุขชอป",
+          desc1:
+            "คัดสรรงานคราฟต์เชิงนิเวศและผลิตภัณฑ์ชุมชนระดับพรีเมียม พร้อมระบบบันทึกห่วงโซ่อุปทานที่ยั่งยืน เปลี่ยนภูมิปัญญาท้องถิ่นให้เป็นความหรูหราที่จับต้องได้ในทุกวัน",
+          title2: "สุขชิม",
+          desc2:
+            "ผสานนวัตกรรมดิจิทัลเข้ากับตำรับอาหารดั้งเดิม ลิ้มรสเมนูมรดกทางวัฒนธรรมที่ปรุงอย่างแม่นยำ พร้อมความใส่ใจในสิ่งแวดล้อมและคาร์บอนต่ำจากวัตถุดิบชุมชน",
+          title3: "สุขสนุก",
+          desc3:
+            "เดินทางไปกับทริปท่องเที่ยวเชิงนิเวศที่ออกแบบมาเฉพาะตัว ค้นพบเส้นทางน้ำที่ซ่อนอยู่ กิจกรรมฝึกสมาธิด้วยเสียง และนวัตกรรมสีเขียวที่จะเติมเต็มจิตวิญญาณของคุณ",
+
+          // Discover Page TH
+          discMainTitle: "ค้นพบจุดหมายความสุขดีทั่วไทย",
+          discMainSub: "สำรวจพื้นที่ท่องเที่ยวชุมชนระดับพรีเมียมเชิงนิเวศ",
+          discoverBackTxt: "← กลับหน้าหลัก",
+          onlineSectionHeading:
+            "กิจกรรมและมินิเกมจำลองออนไลน์ (สร้างการมีส่วนร่วม)",
+          onTitle1: "วัดโปรดเกศเชษฐาราม",
+          onTitle2: "พิพิธภัณฑ์บ้านคลองบน",
+          onTitle3: "วิสาหกิจผึ้งชันโรง",
+          onTitle4: "ชุมชนผ้ามัดย้อมบางกะเจ้า",
+          faqHeading: "คำถามที่พบบ่อย (FAQ)",
+          modalBookActionBtn: "จองกิจกรรมเวิร์กชอปของจริง",
+          dmHeading: "ค้นหาจุดหมายปลายทางพรีเมียมเพิ่มเติม",
+
+          // Sook Shops TH
+          shopBannerTitle: "สิทธิประโยชน์สุดพิเศษ<br>เพื่อวิถีชีวิตที่ยั่งยืน",
+          shopBannerSub: "คอลเลกชันสินค้าแนะนำจาก สุขชอป",
+          shopBackBtn: "← กลับหน้าหลัก",
+          shopSearchPlaceholder: "ค้นหาผลิตภัณฑ์และงานคราฟต์พรีเมียม...",
+          shopFilterText: "กรองตามหมวดหมู่",
+          shopSortText: "จัดเรียง: สินค้าแนะนำ",
+          prodTag1: "งานคราฟต์อินทรีย์",
+          prodName1: "ผ้าพันคอไม้มัดย้อมครามพรีเมียม",
+          prodBuy1: "ซื้อเลย",
+          prodTag2: "นวัตกรรมอาหารเพื่อสุขภาพ",
+          prodName2: "พาสต้าแป้งกล้วยน้ำว้าดิบอินทรีย์",
+          prodBuy2: "ซื้อเลย",
+          prodTag3: "ผลิตภัณฑ์เชิงนิเวศ",
+          prodName3: "กระเป๋าเสื่อกกทอมือดีไซน์ร่วมสมัย",
+          prodBuy3: "ซื้อเลย",
+
+          // Sook Taste Luxury TH
+          tasteBannerTitle: "ภูมิปัญญาแห่งรสชาติแห่งบางกะเจ้า",
+          tasteBannerSub:
+            "เชิดชูระบบนิเวศผืนป่าผ่านศาสตร์แห่งอาหารระดับพรีเมียม",
+          tasteBackBtn: "← กลับหน้าหลัก",
+          ingSectionTag: "ระบบนิเวศบนจานอาหาร",
+          ingSectionHeading: "ทุกวัตถุดิบล้วนมีเรื่องเล่าที่งดงาม",
+          vHuman: "ดีต่อคนกิน",
+          vCommunity: "ดีต่อชุมชน",
+          vEnv: "ดีต่อสิ่งแวดล้อม",
+          ingTitle1: "น้ำผึ้งชันโรง",
+          ingEco1: "ผู้พิทักษ์การผสมเกสร",
+          vDescH1:
+            "สารต้านอนุมูลอิสระสูงกว่าน้ำผึ้งทั่วไป บำรุงสมองและเสริมภูมิคุ้มกันระดับลึก",
+          vDescC1:
+            "สร้างรายได้เสริมที่เป็นกอบเป็นกำให้เกษตรกรสวนอินทรีย์รอบคุ้งบางกะเจ้า",
+          vDescE1:
+            "ชันโรงช่วยผสมเกสรพืชพรรณไม้ ช่วยรักษาความหลากหลายทางชีวภาพของป่าไม้ให้คงอยู่",
+          ingTitle2: "มะม่วงน้ำดอกไม้บางกะเจ้า",
+          ingEco2: "ผลผลิตจากดินตะกอนสองน้ำ",
+          vDescH2:
+            "อุดมด้วยวิตามินซีและเบต้าแคโรทีนเข้มข้น บำรุงสายตาและระบบทางเดินอาหาร",
+          vDescC2:
+            "ร่วมสืบทอดสวนผลไม้ยกร่องโบราณ อัตลักษณ์วิถีเกษตรกรรมดั้งเดิมที่ใกล้สูญหาย",
+          vDescE2:
+            "รากต้นมะม่วงช่วยยึดเกาะโครงสร้างหน้าดิน ลดการกัดเซาะพังทลายริมตลิ่งตามคลองธรรมชาติ",
+
+          // Sook Explore TH
+          expBannerTitle: "การผจญภัยอย่างมีสติ ณ ผืนป่าบางกะเจ้า",
+          expBannerSub:
+            "ทริปเส้นทางท่องเที่ยวเต็มวันและกิจกรรมเวิร์กชอปงานคราฟต์",
+          expBackBtn: "← กลับหน้าหลัก",
+          routeSectionTag: "เส้นทางท่องเที่ยวเต็มวัน",
+          routeSectionHeading: "ทริปท่องเที่ยวเชิงนิเวศพร้อมแอปพลิเคชันนำทาง",
+          rTag1: "เส้นทางธรรมชาติ",
+          rTitle1: "เส้นทางสีเขียวแห่งผืนป่าผู้พิทักษ์",
+          rDesc1:
+            "สำรวจเส้นทางป่าชายเลนที่อุดมสมบูรณ์ เรียนรู้ระบบนิเวศและนกท้องถิ่น พร้อมวิเคราะห์คาร์บอนฟุตพริ้นท์แบบเรียลไทม์ผ่านโมบายแอป",
+          rDur1: "⏱ เต็มวัน (8 ชั่วโมง)",
+        },
+        en: {
+          navDiscover: "Discover",
+          navShops: "Sook Shops",
+          navTaste: "Sook Taste",
+          navExplore: "Sook Explore",
+          heroSub: "Sook D • Bang Krachao",
+          heroMain: "The River Oasis<br>Where Time Stands Still",
+          introTag: "The Tri-Senses of Sook D",
+          introText:
+            "Experience Bang Krachao through three curated perspectives.",
+          title1: "Sook Shops",
+          desc1:
+            "Curating premium eco-crafts and community products with sustainable supply chain logging, turning local wisdom into tangible everyday luxury.",
+          title2: "Sook Taste",
+          desc2:
+            "Embracing the gastronomy digitization of traditional recipes. Savor precision-cooked heritage dishes sourced transparently from eco-friendly agriculture.",
+          title3: "Sook Explore",
+          desc3:
+            "Journey through customized local eco-tourism. Discover hidden waterways, sound meditation sessions, and green innovations designed to engage your mind.",
+
+          // Discover Page EN
+          discMainTitle: "Discover Sook D Sanctuaries",
+          discMainSub: "Explore Premium Community Tourism Across Thailand",
+          discoverBackTxt: "← Back to Home",
+          onlineSectionHeading: "Online Interactive Activities & Mini-Games",
+          onTitle1: "Wat Protket Temple",
+          onTitle2: "Baan Khlong Bon Museum",
+          onTitle3: "Stingless Bee Enterprise",
+          onTitle4: "Handcrafted Tie-Dye Village",
+          faqHeading: "Frequently Asked Questions",
+          modalBookActionBtn: "Book Real Experience Now",
+          dmHeading: "Discover More Sanctuaries",
+
+          // Sook Shops EN
+          shopBannerTitle: "Exclusive Privileges<br>for Sustainable Living",
+          shopBannerSub: "Sook Shops Recommended Collection",
+          shopBackBtn: "← Back to Home",
+          shopSearchPlaceholder: "Search premium crafts and products...",
+          shopFilterText: "Filter By Category",
+          shopSortText: "Sort By: Featured",
+          prodTag1: "Organic Craft",
+          prodName1: "Premium Indigo Tie-Dye Scarf",
+          prodBuy1: "Buy Now",
+          prodTag2: "Wellness & Food",
+          prodName2: "Green Banana Flour Pasta",
+          prodBuy2: "Buy Now",
+          prodTag3: "Eco Product",
+          prodName3: "Handcrafted Reed Mat Bag",
+          prodBuy3: "Buy Now",
+
+          // Sook Taste Luxury EN
+          tasteBannerTitle: "The Culinary Wisdom of Bang Krachao",
+          tasteBannerSub: "Honoring Heritage Ecosystems Through Gastronomy",
+          tasteBackBtn: "← Back to Home",
+          ingSectionTag: "Ecology on a Plate",
+          ingSectionHeading: "Every Ingredient Tells a Story",
+          vHuman: "Good for Health",
+          vCommunity: "Good for Community",
+          vEnv: "Good for Environment",
+          ingTitle1: "Stingless Bee Honey",
+          ingEco1: "Pollinator Ally",
+          vDescH1:
+            "Extremely high in antioxidants. Promotes neurological health and deeply boosts immunity.",
+          vDescC1:
+            "Generates premium supplementary income for organic farmers across Bang Krachao.",
+          vDescE1:
+            "Bees actively pollinate local crops, preserving the rich biodiversity of the green lung forest.",
+          ingTitle2: "Nam Dok Mai Mango",
+          ingEco2: "Alluvial Soil Bounty",
+          vDescH2:
+            "Rich in concentrated Vitamin C and Beta-Carotene, enhancing vision and digestive health.",
+          vDescC2:
+            "Sustains historic grid-ditch orchards, protecting an ancient regional agricultural identity.",
+          vDescE2:
+            "Extensive roots naturally bind the shoreline soil, mitigating erosion along the river canals.",
+
+          // Sook Explore EN
+          expBannerTitle: "Mindful Adventures in the Green Lung",
+          expBannerSub: "Immersive Full-Day Routes & Craft Workshops",
+          expBackBtn: "← Back to Home",
+          routeSectionTag: "Full-Day Experiences",
+          routeSectionHeading: "Digital-Guided Ecological Journeys",
+          rTag1: "Eco Nature",
+          rTitle1: "The Sanctuary Green Trail",
+          rDesc1:
+            "Explore pristine mangrove pathways, learn about bird species, and analyze your carbon footprint live via our integrated mobile app.",
+          rDur1: "⏱ Full Day (8 Hours)",
+        },
+      };
+
+      function switchLang(lang) {
+        currentLang = lang;
+        document
+          .getElementById("btn-th")
+          .classList.toggle("active", lang === "th");
+        document
+          .getElementById("btn-en")
+          .classList.toggle("active", lang === "en");
+
+        document.getElementById("nav-discover").innerText =
+          data[lang].navDiscover;
+        document.getElementById("nav-shops").innerText = data[lang].navShops;
+        document.getElementById("nav-taste").innerText = data[lang].navTaste;
+        document.getElementById("nav-explore").innerText =
+          data[lang].navExplore;
+        document.getElementById("hero-sub").innerText = data[lang].heroSub;
+        document.getElementById("hero-main").innerHTML = data[lang].heroMain;
+        document.getElementById("intro-tag").innerText = data[lang].introTag;
+        document.getElementById("intro-text").innerText = data[lang].introText;
+        document.getElementById("card-title-1").innerText = data[lang].title1;
+        document.getElementById("card-desc-1").innerText = data[lang].desc1;
+        document.getElementById("card-title-2").innerText = data[lang].title2;
+        document.getElementById("card-desc-2").innerText = data[lang].desc2;
+        document.getElementById("card-title-3").innerText = data[lang].title3;
+        document.getElementById("card-desc-3").innerText = data[lang].desc3;
+
+        // หน้า Discover
+        document.getElementById("disc-main-title").innerText =
+          data[lang].discMainTitle;
+        document.getElementById("disc-main-sub").innerText =
+          data[lang].discMainSub;
+        document.getElementById("discover-back-txt").innerText =
+          data[lang].discoverBackTxt;
+        document.getElementById("online-section-heading").innerText =
+          data[lang].onlineSectionHeading;
+        document.getElementById("faqHeading").innerText = data[lang].faqHeading;
+        document.getElementById("modal-book-action-btn").innerText =
+          data[lang].modalBookActionBtn;
+        document.getElementById("dm-heading").innerText = data[lang].dmHeading;
+
+        document.getElementById("p-tab-samut").innerText =
+          lang === "th" ? "สมุทรปราการ" : "Samut Prakan";
+        document.getElementById("p-tab-nakhon").innerText =
+          lang === "th" ? "นครปฐม" : "Nakhon Pathom";
+        document.getElementById("p-tab-ratchaburi").innerText =
+          lang === "th" ? "ราชบุรี" : "Ratchaburi";
+        document.getElementById("p-tab-nakhonsi").innerText =
+          lang === "th" ? "นครศรีธรรมราช" : "Nakhon Si";
+        for (let i = 1; i <= 4; i++)
+          document.getElementById(`on-title-${i}`).innerText =
+            data[lang][`onTitle${i}`];
+
+        // หน้า Sook Shops
+        document.getElementById("shop-banner-title").innerHTML =
+          data[lang].shopBannerTitle;
+        document.getElementById("shop-banner-sub").innerText =
+          data[lang].shopBannerSub;
+        document.getElementById("shop-back-btn").innerText =
+          data[lang].shopBackBtn;
+        document.getElementById("shop-search-placeholder").placeholder =
+          data[lang].shopSearchPlaceholder;
+        document.getElementById("shop-filter-text").innerText =
+          data[lang].shopFilterText;
+        document.getElementById("shop-sort-text").innerText =
+          data[lang].shopSortText;
+
+        // หน้า Sook Taste
+        document.getElementById("taste-banner-title").innerHTML =
+          data[lang].tasteBannerTitle;
+        document.getElementById("taste-banner-sub").innerText =
+          data[lang].tasteBannerSub;
+        document.getElementById("taste-back-btn").innerText =
+          data[lang].tasteBackBtn;
+
+        switchProvince(activeProv);
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const hero = document.getElementById("hero-section");
+        if (hero) hero.classList.add("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("main-header");
+        if (!header.classList.contains("subpage-active")) {
+          if (window.scrollY > 50) header.classList.add("scrolled");
+          else header.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>
